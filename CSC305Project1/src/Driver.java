@@ -3,15 +3,12 @@
  * @author Michael Hilomen
  *
  */
-public class Driver {
+public class Driver extends Person implements Comparable<Driver>{
 	
-	private String name;
-	private double balance;
 	private String carTitle;
 	private boolean isAvailable;
 	private int numTrips;
 	private double rating;
-	private Integer[] location;
 	
 	
 	/**
@@ -21,14 +18,13 @@ public class Driver {
 	 * @param carTitle Driver's vehicle name
 	 */
 	public Driver (String name, double balance, String carTitle, Integer[] location) {
-		this.name = name;
-		this.balance = balance;
+		super(name, balance, location);
 		this.carTitle = carTitle;
-		this.location = location;
 		
 		isAvailable = true;
 		numTrips = 0;
-		rating = 5.0;
+		rating = 0.0;
+		
 	}
 	
 	/**
@@ -49,31 +45,6 @@ public class Driver {
 	}
 	
 	/**
-	 * Adds trip fare to driver's balance
-	 * @param fare payment to driver.
-	 */
-	public void addBalance(double fare) {
-		balance += fare;
-	}
-	
-	/**
-	 * Shows drivers current balance.
-	 * @return the driver's balance
-	 */
-	public double getBalance(){
-		return balance;
-	}
-	
-	/**
-	 * Shows the driver's name
-	 * @return the driver's name
-	 */
-	
-	public String getName(){
-		return name;
-	}
-	
-	/**
 	 * Shows the driver's vehicle
 	 * @return driver's vehicle name
 	 */
@@ -87,6 +58,36 @@ public class Driver {
 	 */
 	public boolean isAvailable(){
 		return isAvailable;
+	}
+	
+	public double getRating() {
+		return rating;
+	}
+
+	@Override
+	public int compareTo(Driver other) {
+		// TODO Auto-generated method stub
+		double d1distance = Helpers.computeDistance(getLocation(), getDestination());
+		double d2distance = Helpers.computeDistance(other.getLocation(), other.getDestination());
+	
+		if (d1distance < d2distance) {
+			return -1;
+		}
+		else if (d1distance > d2distance) {
+			return 1;
+		}
+		
+		else if (d1distance == d2distance) {
+			if (rating < other.getRating()) {
+				return 1;
+			}
+			else if (rating > other.getRating()) {
+				return -1;
+			}
+		}
+		
+		return 0;
+		
 	}
 	
 

@@ -3,11 +3,9 @@
  * @author Michael Hilomen
  *
  */
-public class Passenger {
-	
-	private String name;
-	private double balance;
-	private Integer[] location;
+
+import java.util.Random;
+public class Passenger extends Person{
 	
 	/**
 	 * initializes new passenger.
@@ -16,25 +14,21 @@ public class Passenger {
 	 * @param location passenger's location
 	 */
 	
-	public Passenger(String name, double balance, Integer[] location) {
-		this.name = name;
-		this.balance = balance;
-		this.location = location;
+	public Passenger(String name, double balance, Integer[] location, Integer[] destination) {
+		super(name, balance, location);
+		setDestination(destination);
 	}
 	
-	/**
-	 * Subtracts fare from passenger's balance.
-	 * @param fare the trip's fare.
-	 */
-	public void subtractBalance(double fare) {
-		balance -= fare;
+	public int rateDriver() {
+		
+		Random r = new Random();
+		int x = (int)r.nextGaussian() * 1 + 5;
+		
+		if (x > 5) {
+			x = 5;
+		}
+		return x;
 	}
-	/**
-	 * Shows the passenger's balance.
-	 * @return The passenger's balance.
-	 */
-	public double getBalance() {
-		return balance;
-	}
+	
 
 }
