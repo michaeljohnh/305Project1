@@ -1,0 +1,13 @@
+// This is the input file.
+//
+// Valid formats:
+//
+// Driver driverName balance carTitle locationX locationY
+// Driver driverName balance carTitle
+//
+// Client clientName balance locationX locationY destinationX destinationY
+// Client clientName balance
+//
+// 
+Driver MJ 200.0 Civic 10 10
+Client Client 100 10 10 20 20

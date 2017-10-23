@@ -3,40 +3,31 @@
  * @author Michael Hilomen
  *
  */
-public class Driver extends Person implements Comparable<Driver>{
+public class Driver extends Entity {
 	
 	private String carTitle;
-	private boolean isAvailable;
 	private int numTrips;
 	private double rating;
 	
 	
 	/**
-	 * Initializes driver.
-	 * @param name Name of driver
-	 * @param balance Driver's balance
+	 * Creates a new Driver object
+	 * @param name Driver's name
+	 * @param balance starting balance
 	 * @param carTitle Driver's vehicle name
+	 * @param location Driver's starting location
 	 */
-	public Driver (String name, double balance, String carTitle, Integer[] location) {
+	public Driver (String name, double balance, String carTitle, MapLocation location) {
 		super(name, balance, location);
 		this.carTitle = carTitle;
 		
-		isAvailable = true;
 		numTrips = 0;
 		rating = 0.0;
 		
 	}
 	
 	/**
-	 * sets driver's status
-	 * @param available whether or not driver is busy
-	 */
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
-	
-	/**
-	 * Rates driver
+	 * Rates driver and updates driver average rating.
 	 * @param tripRating driver's rating for the trip.
 	 */
 	public void rateDriver(double tripRating){
@@ -53,42 +44,22 @@ public class Driver extends Person implements Comparable<Driver>{
 	}
 	
 	/**
-	 * checks if the driver is available to take a trip.
-	 * @return driver's status
+	 * Shows driver rating
+	 * @return driver's average rating
 	 */
-	public boolean isAvailable(){
-		return isAvailable;
-	}
-	
 	public double getRating() {
 		return rating;
 	}
-
-	@Override
-	public int compareTo(Driver other) {
-		// TODO Auto-generated method stub
-		double d1distance = Helpers.computeDistance(getLocation(), getDestination());
-		double d2distance = Helpers.computeDistance(other.getLocation(), other.getDestination());
 	
-		if (d1distance < d2distance) {
-			return -1;
-		}
-		else if (d1distance > d2distance) {
-			return 1;
-		}
+	public String toString() {
 		
-		else if (d1distance == d2distance) {
-			if (rating < other.getRating()) {
-				return 1;
-			}
-			else if (rating > other.getRating()) {
-				return -1;
-			}
-		}
+		String balance = String.format("$%.2f", getBalance());
+		String r = String.format("%.2f stars", getRating());
 		
-		return 0;
+		String s = "Driver Name: " + getName() + ", Car: " + getCarTitle() + ", Balance: " + balance
+		+ ", Rating: " + r + ", Location: " + getLocation().toString();
 		
+		return s;
 	}
-	
 
 }
