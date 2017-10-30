@@ -7,7 +7,7 @@ public class Simulator {
 		TripManager t1 = new TripManager();
 		FileParser fp = new FileParser();
 
-		t1 = fp.parseFile("badvalues.txt");
+		t1 = fp.parseFile("samplerandom.txt");
 		
 		t1.run();
 

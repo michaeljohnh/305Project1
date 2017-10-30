@@ -1,0 +1,9 @@
+How to add uberEATS functionality
+
+The program can have uberEATS functionality by modifying extending the Entity class
+to a uberEATSClient class.
+
+This way, the original location of the UberEATS client will be the restaurant where the Driver will pick up the food.
+The destination of the UberEATS client will be the home/office of the UberEATS client.
+The fare will be much higher as the cost of food will be factored in the fare.
+

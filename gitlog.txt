@@ -1,0 +1,23 @@
+commit 9ed5113f08efc99149e4ae6d6de232e29dc00ced
+Author: michaeljohnh <mhilomen@calpoly.edu>
+Date:   Mon Oct 23 03:02:01 2017 -0700
+
+    Added javadoc
+
+commit 9aaa6adc59a3426c7a750fa4538c0e25625fda37
+Author: michaeljohnh <mhilomen@calpoly.edu>
+Date:   Mon Oct 23 02:59:08 2017 -0700
+
+    Added Unit testing and JSON and Reporting and Parsing
+
+commit 1a152a8a482c81d66741b5ad12754400ed8cdd84
+Author: michaeljohnh <mhilomen@calpoly.edu>
+Date:   Wed Oct 18 00:19:41 2017 -0700
+
+    works pending testing
+
+commit 986ad0a5325e6672d1982dd631018b3aab42a9b3
+Author: michaeljohnh <mhilomen@calpoly.edu>
+Date:   Tue Oct 10 11:11:20 2017 -0700
+
+    First commit
